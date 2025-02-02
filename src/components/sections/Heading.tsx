@@ -1,11 +1,7 @@
-"use client"
+'use client'
+
+import React from 'react'
 
 export const Heading = () => {
-    return (
-        <div>
-            heading
-        </div>
-    );
+	return <h1 className="text-4xl font-bold text-primary"></h1>
 }
-
-export default Heading;
