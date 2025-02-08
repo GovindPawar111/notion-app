@@ -1,5 +1,8 @@
 'use client'
 
+import { ArrowRight } from 'lucide-react'
+import { Button } from '../ui/button'
+
 export const Heading = () => {
 	return (
 		<div className="max-w-3xl space-y-4">
@@ -11,6 +14,10 @@ export const Heading = () => {
 				Notion is connected workspace where <br />
 				better, faster work happens.
 			</h3>
+			<Button>
+				Enter Notion
+				<ArrowRight className="h-4 w-4 ml-2" />
+			</Button>
 		</div>
 	)
 }
