@@ -1,0 +1,7 @@
+{
+	"prettier.configPath": ".prettierrc",
+	"notebook.defaultFormatter": "EditorConfig.EditorConfig",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"files.autoSave": "afterDelay",
+	"files.eol": "\n"
+}
