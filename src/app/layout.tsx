@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
+import ThemeProvider from '@/components/providers/ThemeProvider'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const serif = Source_Serif_4({ subsets: ['latin'], variable: '--font-serif' })
@@ -31,8 +32,20 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en" className={`${inter.variable} ${serif.variable}`}>
-			<body>{children}</body>
+		<html lang="en" suppressHydrationWarning>
+			<body
+				className={`${inter.variable} ${serif.variable} scrollbar-hide`}
+			>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+					storageKey="notion-theme"
+				>
+					{children}
+				</ThemeProvider>
+			</body>
 		</html>
 	)
 }
