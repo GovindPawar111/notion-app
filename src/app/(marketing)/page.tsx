@@ -1,6 +1,6 @@
-import Footer from '@/components/views/Footer'
-import Heading from '@/components/views/Heading'
-import Heroes from '@/components/views/Heroes'
+import Footer from '@/components/views/marketing/Footer'
+import Heading from '@/components/views/marketing/Heading'
+import Heroes from '@/components/views/marketing/Heroes'
 
 export default function MarketingPage() {
 	return (

@@ -1,5 +1,5 @@
-import { Button } from '../ui/button'
-import Logo from './Logo'
+import { Button } from '../../ui/button'
+import Logo from '../generic/Logo'
 
 const Footer = (): JSX.Element => {
 	return (

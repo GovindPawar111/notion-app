@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
 import ThemeProvider from '@/components/providers/ThemeProvider'
+import ConvexClientProvider from '@/components/providers/ConvexProvider'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const serif = Source_Serif_4({ subsets: ['latin'], variable: '--font-serif' })
@@ -36,15 +37,17 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} ${serif.variable} scrollbar-hide`}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-					storageKey="notion-theme"
-				>
-					{children}
-				</ThemeProvider>
+				<ConvexClientProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+						storageKey="notion-theme"
+					>
+						{children}
+					</ThemeProvider>
+				</ConvexClientProvider>
 			</body>
 		</html>
 	)

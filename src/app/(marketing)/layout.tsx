@@ -1,4 +1,4 @@
-import Navbar from '@/components/views/Navbar'
+import Navbar from '@/components/views/marketing/Navbar'
 
 const MarketingLayout = ({
 	children,
