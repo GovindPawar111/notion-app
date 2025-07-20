@@ -16,6 +16,7 @@ import { useMutation } from 'convex/react'
 import { api } from '@/convex/_generated/api'
 import Item from './Item'
 import { toast } from 'sonner'
+import DocumentList from './DocumentList'
 
 export const Navigation = (): JSX.Element => {
 	const pathName = usePathname()
