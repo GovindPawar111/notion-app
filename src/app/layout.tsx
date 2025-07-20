@@ -3,6 +3,7 @@ import { Inter, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
 import ThemeProvider from '@/components/providers/ThemeProvider'
 import ConvexClientProvider from '@/components/providers/ConvexProvider'
+import { Toaster } from 'sonner'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const serif = Source_Serif_4({ subsets: ['latin'], variable: '--font-serif' })
@@ -45,6 +46,7 @@ export default function RootLayout({
 						disableTransitionOnChange
 						storageKey="notion-theme"
 					>
+						<Toaster position="bottom-center" />
 						{children}
 					</ThemeProvider>
 				</ConvexClientProvider>

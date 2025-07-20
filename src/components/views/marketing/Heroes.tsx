@@ -9,13 +9,13 @@ export const Heroes = (): JSX.Element => {
 				<div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] md:h-[400px] md:w-[400px]">
 					<Image
 						src="/reading.webp"
-						layout="fill"
+						fill
 						className="object-contain dark:hidden"
 						alt="reading"
 					/>
 					<Image
 						src="/reading-dark.webp"
-						layout="fill"
+						fill
 						className="object-contain hidden dark:block"
 						alt="reading"
 					/>
@@ -23,13 +23,13 @@ export const Heroes = (): JSX.Element => {
 				<div className="relative h-[400px] w-[400px] hidden md:block">
 					<Image
 						src="/working.webp"
-						layout="fill"
+						fill
 						className="object-contain dark:hidden"
 						alt="Working"
 					/>
 					<Image
 						src="/working-dark.webp"
-						layout="fill"
+						fill
 						className="object-contain hidden dark:block"
 						alt="Working"
 					/>
