@@ -4,9 +4,11 @@ import { cn } from '@/lib/utils'
 import {
 	ChevronsLeft,
 	MenuIcon,
+	Plus,
 	PlusCircle,
 	Search,
 	Settings,
+	Trash,
 } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { ElementRef, useEffect, useRef, useState } from 'react'
@@ -17,6 +19,9 @@ import { api } from '@/convex/_generated/api'
 import Item from './Item'
 import { toast } from 'sonner'
 import DocumentList from './DocumentList'
+import { Popover, PopoverTrigger } from '@/components/ui/popover'
+import { PopoverContent } from '@radix-ui/react-popover'
+import TrashBox from './TrashBox'
 
 export const Navigation = (): JSX.Element => {
 	const pathName = usePathname()
@@ -128,6 +133,7 @@ export const Navigation = (): JSX.Element => {
 					isMobile && 'w-0',
 				)}
 			>
+				{/* Close button to close the sidebar. */}
 				<div
 					role="button"
 					onClick={collapse}
@@ -139,7 +145,9 @@ export const Navigation = (): JSX.Element => {
 					<ChevronsLeft className="h-6 w-6 " />
 				</div>
 				<div>
+					{/* User Tab button */}
 					<UserItem />
+					{/* Search tab button */}
 					<Item
 						onClick={() => {
 							return
@@ -148,6 +156,7 @@ export const Navigation = (): JSX.Element => {
 						icon={Search}
 						isSearch
 					/>
+					{/* Setting tab button */}
 					<Item
 						onClick={() => {
 							return
@@ -155,6 +164,7 @@ export const Navigation = (): JSX.Element => {
 						label={'Settings'}
 						icon={Settings}
 					/>
+					{/* Add New Page tab button */}
 					<Item
 						onClick={handleCreate}
 						label={'New Page'}
@@ -162,8 +172,28 @@ export const Navigation = (): JSX.Element => {
 					/>
 				</div>
 				<div className="mt-4">
+					{/* Render list of Notes */}
 					<DocumentList />
+					{/* Render Add a page button */}
+					<Item
+						onClick={handleCreate}
+						label={'Add a page'}
+						icon={Plus}
+					/>
+					{/* Trash box tab button along with Pop over component */}
+					<Popover>
+						<PopoverTrigger className="w-full mt-4">
+							<Item label="Trash" icon={Trash} />
+						</PopoverTrigger>
+						<PopoverContent
+							className="ml-1 p-0 w-72 rounded-md border bg-popover text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-popover-content-transform-origin]"
+							side={isMobile ? 'bottom' : 'right'}
+						>
+							<TrashBox />
+						</PopoverContent>
+					</Popover>
 				</div>
+				{/* Bar component to change the width of sidebar */}
 				<div
 					onMouseDown={handleMouseDown}
 					onClick={resetWidth}
@@ -178,6 +208,7 @@ export const Navigation = (): JSX.Element => {
 					isMobile && 'left-0 w-full',
 				)}
 			>
+				{/* Meun button to open the sidebar. */}
 				<nav className="bg-transparent px-3 py-2 w-full">
 					{isCollapsed && (
 						<MenuIcon

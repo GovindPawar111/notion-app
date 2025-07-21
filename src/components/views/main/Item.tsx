@@ -25,7 +25,7 @@ import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 interface ItemProps {
-	onClick: () => void
+	onClick?: () => void
 	label: string
 	icon: LucideIcon
 	id?: Id<'documents'>
