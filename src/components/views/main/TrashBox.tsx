@@ -76,7 +76,7 @@ export const TrashBox = () => {
 				/>
 			</div>
 			<div className="mt-2 px-1 pb-1">
-				<p className="hidden last:block text-xs text-center text-muted-foreground pd-2">
+				<p className="mb-2 hidden last:block text-xs text-center text-muted-foreground pd-2">
 					No documents found.
 				</p>
 				{filteredDocuments?.map((document) => (
@@ -91,7 +91,7 @@ export const TrashBox = () => {
 							<div
 								onClick={(e) => onRestore(e, document._id)}
 								role="button"
-								className="rounded-sm p-2 hover:bg-neutral-200"
+								className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
 							>
 								<Undo className="h-4 w-4 text-muted-foreground" />
 							</div>
@@ -100,7 +100,7 @@ export const TrashBox = () => {
 							>
 								<div
 									role="button"
-									className="rounded-sm p-2 hover:bg-neutral-200"
+									className="rounded-sm p-2 hover:bg-neutral-200 dark:hover:bg-neutral-600"
 								>
 									<Trash className="h-4 w-4 text-muted-foreground" />
 								</div>

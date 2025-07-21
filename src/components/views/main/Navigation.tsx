@@ -22,8 +22,12 @@ import DocumentList from './DocumentList'
 import { Popover, PopoverTrigger } from '@/components/ui/popover'
 import { PopoverContent } from '@radix-ui/react-popover'
 import TrashBox from './TrashBox'
+import useSearch from '@/hooks/useSearch'
+import useSettings from '@/hooks/useSettings'
 
 export const Navigation = (): JSX.Element => {
+	const search = useSearch()
+	const settings = useSettings()
 	const pathName = usePathname()
 	const isMobile = useMediaQuery('(max-width: 768px)')
 	const create = useMutation(api.documents.create)
@@ -150,7 +154,7 @@ export const Navigation = (): JSX.Element => {
 					{/* Search tab button */}
 					<Item
 						onClick={() => {
-							return
+							search.onOpen()
 						}}
 						label={'Search'}
 						icon={Search}
@@ -159,7 +163,7 @@ export const Navigation = (): JSX.Element => {
 					{/* Setting tab button */}
 					<Item
 						onClick={() => {
-							return
+							settings.onOpen()
 						}}
 						label={'Settings'}
 						icon={Settings}
