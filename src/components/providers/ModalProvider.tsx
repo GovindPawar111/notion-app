@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import SettingModal from '../modals/SettingModal'
-import SearchCommandModal from '../modals/SearchCommandModal'
 
 export const ModalProvider = () => {
 	const [isMounted, setIsMounted] = useState(false)
@@ -17,7 +16,6 @@ export const ModalProvider = () => {
 	return (
 		<>
 			<SettingModal />
-			<SearchCommandModal />
 		</>
 	)
 }
