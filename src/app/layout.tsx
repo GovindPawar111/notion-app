@@ -5,6 +5,7 @@ import ThemeProvider from '@/components/providers/ThemeProvider'
 import ConvexClientProvider from '@/components/providers/ConvexProvider'
 import { Toaster } from 'sonner'
 import ModalProvider from '@/components/providers/ModalProvider'
+import { EdgeStoreProvider } from '../lib/edgestore'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const serif = Source_Serif_4({ subsets: ['latin'], variable: '--font-serif' })
@@ -40,17 +41,19 @@ export default function RootLayout({
 				className={`${inter.variable} ${serif.variable} scrollbar-hide`}
 			>
 				<ConvexClientProvider>
-					<ThemeProvider
-						attribute="class"
-						defaultTheme="system"
-						enableSystem
-						disableTransitionOnChange
-						storageKey="notion-theme"
-					>
-						<Toaster position="bottom-center" />
-						<ModalProvider />
-						{children}
-					</ThemeProvider>
+					<EdgeStoreProvider>
+						<ThemeProvider
+							attribute="class"
+							defaultTheme="system"
+							enableSystem
+							disableTransitionOnChange
+							storageKey="notion-theme"
+						>
+							<Toaster position="bottom-center" />
+							<ModalProvider />
+							{children}
+						</ThemeProvider>
+					</EdgeStoreProvider>
 				</ConvexClientProvider>
 			</body>
 		</html>
