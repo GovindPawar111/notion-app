@@ -51,7 +51,7 @@ export const TrashBox = () => {
 			error: 'Failed to Delete note.',
 		})
 
-		if (params.docuemntId === documentId) {
+		if (params.documentId === documentId) {
 			router.push('/documents')
 		}
 	}
