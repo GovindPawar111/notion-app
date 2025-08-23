@@ -5,7 +5,9 @@ import Cover from '@/components/views/main/Cover'
 import Toolbar from '@/components/views/main/Toolbar'
 import { api } from '@/convex/_generated/api'
 import { Id } from '@/convex/_generated/dataModel'
-import { useQuery } from 'convex/react'
+import { useMutation, useQuery } from 'convex/react'
+import dynamic from 'next/dynamic'
+import { useMemo } from 'react'
 
 interface DocumentIdPageProps {
 	params: {
@@ -14,9 +16,26 @@ interface DocumentIdPageProps {
 }
 
 const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
+	const Editor = useMemo(
+		() =>
+			dynamic(() => import('@/components/views/main/Editor'), {
+				ssr: false,
+			}),
+		[],
+	)
+
 	const document = useQuery(api.documents.getById, {
 		documentId: params.documentId,
 	})
+
+	const update = useMutation(api.documents.update)
+
+	const onChange = (content: string) => {
+		update({
+			id: params.documentId,
+			content,
+		})
+	}
 
 	// If document is undefined, it means the query is still loading.
 	if (document === undefined) {
@@ -44,6 +63,11 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
 			<Cover url={document.coverImage} preview={document.isPublished} />
 			<div className="md:max-w-3xl lg:max-w-4xl mx-auto">
 				<Toolbar initialData={document} />
+				<Editor
+					onChange={onChange}
+					initialContent={document.content}
+					editable={document.isPublished}
+				/>
 			</div>
 		</div>
 	)
