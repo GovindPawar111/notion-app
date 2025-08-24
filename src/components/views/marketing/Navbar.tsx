@@ -10,7 +10,7 @@ import { Button } from '../../ui/button'
 import Spinner from '../generic/Spinner'
 import Link from 'next/link'
 
-const Navbar = (): JSX.Element => {
+const Navbar = () => {
 	const { isAuthenticated, isLoading } = useConvexAuth()
 	const isScrolled = useScrollTop()
 	return (

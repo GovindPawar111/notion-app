@@ -48,7 +48,7 @@ const Item = ({
 	isSearch,
 	level = 0,
 	onExpand,
-}: ItemProps): JSX.Element => {
+}: ItemProps) => {
 	const { user } = useUser()
 	const router = useRouter()
 	const create = useMutation(api.documents.create)

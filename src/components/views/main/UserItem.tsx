@@ -11,7 +11,7 @@ import {
 import { SignOutButton, useUser } from '@clerk/clerk-react'
 import { ChevronsLeftRight } from 'lucide-react'
 
-export const UserItem = (): JSX.Element => {
+export const UserItem = () => {
 	const { user } = useUser()
 
 	return (

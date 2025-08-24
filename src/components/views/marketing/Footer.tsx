@@ -1,7 +1,7 @@
 import { Button } from '../../ui/button'
 import Logo from '../generic/Logo'
 
-const Footer = (): JSX.Element => {
+const Footer = () => {
 	return (
 		<footer className="flex items-center w-full p-6 bg-background z-50 dark:bg-[#1f1f1f]">
 			<Logo />

@@ -8,7 +8,7 @@ import { useConvexAuth } from 'convex/react'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 
-const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => {
+export default function MainLayout({ children }: { children: ReactNode }) {
 	const { isAuthenticated, isLoading } = useConvexAuth()
 
 	if (isLoading) {
@@ -32,5 +32,3 @@ const MainLayout = ({ children }: { children: ReactNode }): JSX.Element => {
 		</div>
 	)
 }
-
-export default MainLayout

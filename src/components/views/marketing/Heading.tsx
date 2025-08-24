@@ -7,7 +7,7 @@ import Spinner from '../generic/Spinner'
 import Link from 'next/link'
 import { SignInButton } from '@clerk/clerk-react'
 
-export const Heading = (): JSX.Element => {
+export const Heading = () => {
 	const { isAuthenticated, isLoading } = useConvexAuth()
 
 	return (

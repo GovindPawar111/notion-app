@@ -1,10 +1,10 @@
 import Navbar from '@/components/views/marketing/Navbar'
 
-const MarketingLayout = ({
+export default function MarketingLayout({
 	children,
 }: {
 	children: React.ReactNode
-}): JSX.Element => {
+}) {
 	return (
 		<div className="h-full dark:bg-[#1f1f1f]">
 			<Navbar />
@@ -12,5 +12,3 @@ const MarketingLayout = ({
 		</div>
 	)
 }
-
-export default MarketingLayout

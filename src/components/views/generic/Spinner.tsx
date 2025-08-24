@@ -20,7 +20,7 @@ type SpinnerProps = VariantProps<typeof spinnerVariants> & {
 	size?: 'default' | 'sm' | 'lg' | 'icon'
 }
 
-export const Spinner = ({ size = 'default' }: SpinnerProps): JSX.Element => {
+export const Spinner = ({ size = 'default' }: SpinnerProps) => {
 	return <Loader className={cn(spinnerVariants({ size }))}></Loader>
 }
 

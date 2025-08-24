@@ -26,7 +26,7 @@ import useSearch from '@/hooks/useSearch'
 import useSettings from '@/hooks/useSettings'
 import Navbar from './Navbar'
 
-export const Navigation = (): JSX.Element => {
+export const Navigation = () => {
 	const router = useRouter()
 	const search = useSearch()
 	const settings = useSettings()

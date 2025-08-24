@@ -9,7 +9,7 @@ import { api } from '@/convex/_generated/api'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 
-export const DocumentsPage = (): JSX.Element => {
+export default function DocumentsPage() {
 	const router = useRouter()
 	const { user } = useUser()
 	const create = useMutation(api.documents.create)
@@ -52,5 +52,3 @@ export const DocumentsPage = (): JSX.Element => {
 		</div>
 	)
 }
-
-export default DocumentsPage
