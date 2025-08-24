@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Error = () => {
 	return (
-		<div className="h-[100vh] flex flex-col items-center justify-center space-y-4">
+		<div className="h-[100vh] flex flex-col items-center justify-center space-y-4 dark:bg-[#1f1f1f]">
 			<Image
 				src="/thinking.webp"
 				height={300}
